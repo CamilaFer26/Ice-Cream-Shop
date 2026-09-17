@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.IceCreamShop" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:fontFamily">@font/baloo</item>
+        <!--  Fundo da tela principal e Activities  -->
+        <item name="android:windowBackground">@drawable/icecream_cute</item>
+        <!--  Paleta de cores: usada por AppBar, Bot&#195;&#181;es, FloatingActionButton etc.  -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!--  Cores secund&#195;&#161;rias: chips, toggles, &#195;&#173;cones secund&#195;&#161;rios  -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!--  Cor de fundo padr&#195;&#163;o de telas  -->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <!--  Superf&#195;&#173;cies: cards, dialogs  -->
+        <item name="colorSurface">@color/colorSurface</item>
+        <!--  Cor do texto sobre superf&#195;&#173;cies  -->
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>
