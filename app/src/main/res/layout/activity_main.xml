@@ -8,12 +8,13 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="100dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,6 @@
             android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:text="Ice Cream Shop" />
 
@@ -47,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#E97B8D"
             android:textSize="16sp" />
 
         <TextView
@@ -61,19 +62,22 @@
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chocolate" />
+            android:text="Chocolate"
+            android:textColor="@color/white" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Creme" />
+            android:text="Creme"
+            android:textColor="@color/white" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Morango" />
+            android:text="Morango"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textQtd"
@@ -91,14 +95,17 @@
             android:ems="10"
             android:inputType="number" />
 
-        <Button
-            android:id="@+id/buttonFinalizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginTop="60dp"
-            android:gravity="bottom"
-            android:text="Finalizar" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="bottom"
+        android:text="Finalizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

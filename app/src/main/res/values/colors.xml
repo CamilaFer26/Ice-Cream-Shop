@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#5A2D34</color>
+    <color name="white">#6E6464</color>
     <!--  Rosa aquarela de fundo  -->
     <color name="colorBackground">#F8BBD0</color>
     <!--  Rosa principal (bot&#195;&#181;es, appbar)  -->
@@ -11,9 +11,9 @@
     <color name="colorSecondary">#FFCDD2</color>
     <color name="colorSecondaryVariant">#F48FB1</color>
     <!--  Texto  -->
-    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnPrimary">#6E6464</color>
     <color name="colorOnSecondary">#5A2D34</color>
     <!--  Neutros  -->
-    <color name="colorSurface">#FFFFFF</color>
-    <color name="colorOnSurface">#333333</color>
+    <color name="colorSurface">#6E6464</color>
+    <color name="colorOnSurface">#5A2D34</color>
 </resources>

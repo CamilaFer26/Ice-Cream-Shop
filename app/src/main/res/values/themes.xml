@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:fontFamily">@font/baloo</item>
         <!--  Fundo da tela principal e Activities  -->
-        <item name="android:windowBackground">@drawable/icecream_cute</item>
+        <item name="android:windowBackground">@drawable/background</item>
         <!--  Paleta de cores: usada por AppBar, Bot&#195;&#181;es, FloatingActionButton etc.  -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>

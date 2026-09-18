@@ -93,9 +93,9 @@ public class OrderActivity extends AppCompatActivity {
 
         flavor.setImageResource(img);
         flavor.setScaleType(ImageView.ScaleType.FIT_XY);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(150), px(130));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(150), px(150));
         params.gravity = Gravity.BOTTOM;
-        params.bottomMargin = px(65) * level + px(142);
+        params.bottomMargin = px(90) * level + px(180);
         frameLayout.addView(flavor, params);
     }
 
@@ -104,9 +104,10 @@ public class OrderActivity extends AppCompatActivity {
 
         flavor.setImageResource(img);
         flavor.setScaleType(ImageView.ScaleType.FIT_XY);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(150), px(150));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(130), px(220));
         params.gravity = Gravity.BOTTOM;
         params.bottomMargin = px(2);
+        params.leftMargin = px(15);
         frameLayout.addView(flavor, params);
     }
 
