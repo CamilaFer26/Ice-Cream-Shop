@@ -10,19 +10,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class OrderActivity extends AppCompatActivity {
     private FrameLayout frameLayout;
     private TextView textView;
-    private int sabores[] = {
+    private int saboresImg[] = {
             R.drawable.chocolate,
             R.drawable.cream,
             R.drawable.strawberry
+    };
+    private String sabores[] = {
+            "Chocolate",
+            "Creme",
+            "Morango"
+    };
+    private String opcoes[] = {
+            "Casquinha", "Cascão"
     };
 
     @Override
@@ -39,29 +48,35 @@ public class OrderActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.frameLayout);
 
         Intent intent = getIntent();
-        String tipo = intent.getStringExtra("tipo");
+        int tipo = intent.getIntExtra("tipo", 0);
         int qtd = intent.getIntExtra("qtd", 0);
-        String sabor = intent.getStringExtra("sabor");
+        ArrayList<Integer> flavors = intent.getIntegerArrayListExtra("sabores");
         float total = 0;
-        if(tipo.equalsIgnoreCase("Casquinha")){
+
+        if(tipo == 0){
             total = 5;
-            addFlavor(R.drawable.casquinha, frameLayout, 0);
+            addCone(R.drawable.cone, frameLayout);
         }else{
             total = 8;
-            addFlavor(R.drawable.cascao, frameLayout, 0);
+            addCone(R.drawable.bigcone, frameLayout);
         }
-        total = total*qtd;
+        total = total * qtd;
 
         textView = findViewById(R.id.textPedido);
-        textView.setText("Tipo: " + tipo + "\nSabor: " + sabor + "\nQuantidade: " + qtd +
-                "\nTotal: " + total + " reais");
+        String text = "";
+        text = text.concat("Tipo: " + opcoes[tipo]);
+        text = text.concat("\nSabor(es): ");
+        for(int flavor : flavors){
+            text = text.concat(sabores[flavor] + " ");
+        }
+        text = text.concat("\nQuantidade: " + qtd);
+        text = text.concat("\nTotal: R$ " + total);
+        textView.setText(text);
 
-        if(sabor.equalsIgnoreCase("Chocolate")){
-            addFlavor(R.drawable.chocolate, frameLayout, 1);
-        }else if(sabor.equalsIgnoreCase("Creme")){
-            addFlavor(R.drawable.cream, frameLayout, 1);
-        }else{
-            addFlavor(R.drawable.strawberry, frameLayout, 1);
+        int i = 0;
+        for(int flavor : flavors){
+            addFlavor(saboresImg[flavor], frameLayout, i);
+            i++;
         }
 
         Button btnVoltar = findViewById(R.id.button);
@@ -78,9 +93,20 @@ public class OrderActivity extends AppCompatActivity {
 
         flavor.setImageResource(img);
         flavor.setScaleType(ImageView.ScaleType.FIT_XY);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(100), px(100));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(150), px(130));
         params.gravity = Gravity.BOTTOM;
-        params.bottomMargin = px(50) * level;
+        params.bottomMargin = px(65) * level + px(142);
+        frameLayout.addView(flavor, params);
+    }
+
+    private void addCone(int img, FrameLayout frameLayout){
+        ImageView flavor = new ImageView(this);
+
+        flavor.setImageResource(img);
+        flavor.setScaleType(ImageView.ScaleType.FIT_XY);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(px(150), px(150));
+        params.gravity = Gravity.BOTTOM;
+        params.bottomMargin = px(2);
         frameLayout.addView(flavor, params);
     }
 
