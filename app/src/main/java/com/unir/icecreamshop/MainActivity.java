@@ -28,6 +28,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
+    private Spinner spinnerToppings;
+    private Spinner spinnerSyrup;
     private RadioGroup radioGroup;
     private EditText editQtd;
     private Button btnFinalizar;
@@ -36,6 +38,18 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBox3;
     private String opcoes[] = {
             "Casquinha", "Cascão"
+    };
+    private String toppings[] = {
+            "Nenhum",
+            "Cereja",
+            "Granulado de chocolate",
+            "Granulado colorido"
+    };
+    private String syrups[] = {
+            "Nenhuma",
+            "Chocolate",
+            "Leite condensado",
+            "Morango"
     };
     private TextView info;
 
@@ -51,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         spinner = findViewById(R.id.spinnerTipos);
+        spinnerToppings = findViewById(R.id.spinnerAcompanhamento);
+        spinnerSyrup = findViewById(R.id.spinnerSyrup);
         editQtd = findViewById(R.id.editTextNumberQtd);
         btnFinalizar = findViewById(R.id.buttonFinalizar);
         checkBox1 = findViewById(R.id.checkBox1);
@@ -61,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opcoes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -78,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter<String> adapterToppings = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, toppings);
+        adapterToppings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerToppings.setAdapter(adapterToppings);
+
+        ArrayAdapter<String> adapterSyrup = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, syrups);
+        adapterSyrup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSyrup.setAdapter(adapterSyrup);
+
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
 
                 int qtd = Integer.parseInt(editQtd.getText().toString());
                 int tipo = spinner.getSelectedItemPosition();
+                int topping = spinnerToppings.getSelectedItemPosition();
+                int syrup = spinnerSyrup.getSelectedItemPosition();
                 ArrayList<Integer> selected = getSabores();
                 if(tipo == 0 && selected.size() > 1){
                     Toast.makeText(MainActivity.this, "Selecione no MÁXIMO 1 sabor!", Toast.LENGTH_SHORT).show();
@@ -112,10 +137,13 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("tipo", tipo);
                         intent.putExtra("sabores", selected);
                         intent.putExtra("qtd", qtd);
+                        intent.putExtra("topping", topping);
+                        intent.putExtra("syrup", syrup);
 
                         startActivity(intent);
                     }
                 });
+
                 janela.show();
             }
         });

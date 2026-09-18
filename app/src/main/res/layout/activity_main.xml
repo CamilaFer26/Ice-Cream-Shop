@@ -14,7 +14,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="60dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Ice Cream Shop" />
+            android:text="Ice Cream Shop"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textTipos"
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
             android:text="Escolha o tipo:"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Spinner
@@ -56,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Sabores:"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <CheckBox
@@ -63,21 +66,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chocolate"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Creme"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Morango"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textSyrup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Escolha a cobertura :"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerSyrup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textToppings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Escolha o acompanhamento:"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerAcompanhamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textQtd"
@@ -85,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Informe a quantidade:"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
@@ -105,6 +140,7 @@
         android:layout_marginTop="8dp"
         android:gravity="bottom"
         android:text="Finalizar"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />

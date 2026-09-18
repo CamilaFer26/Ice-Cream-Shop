@@ -33,6 +33,30 @@ public class OrderActivity extends AppCompatActivity {
     private String opcoes[] = {
             "Casquinha", "Cascão"
     };
+    private String toppings[] = {
+            "Nenhum",
+            "Cereja",
+            "Granulado de chocolate",
+            "Granulado colorido"
+    };
+    private int toppingsImg[] = {
+            R.drawable.nullimg,
+            R.drawable.cherry,
+            R.drawable.chocolate_sprinkle,
+            R.drawable.rainbow_sprinkle
+    };
+    private String syrups[] = {
+            "Nenhuma",
+            "Chocolate",
+            "Leite condensado",
+            "Morango"
+    };
+    private int syrupsImg[] = {
+            R.drawable.nullimg,
+            R.drawable.chocolate_syrup,
+            R.drawable.condensed_milk_syrup,
+            R.drawable.strawberry_syrup
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +74,12 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int tipo = intent.getIntExtra("tipo", 0);
         int qtd = intent.getIntExtra("qtd", 0);
+        int topping = intent.getIntExtra("topping", 0);
+        int syrup = intent.getIntExtra("syrup", 0);
         ArrayList<Integer> flavors = intent.getIntegerArrayListExtra("sabores");
         float total = 0;
 
+        // preço e desenho do cone escolhido
         if(tipo == 0){
             total = 5;
             addCone(R.drawable.cone, frameLayout);
@@ -62,6 +89,7 @@ public class OrderActivity extends AppCompatActivity {
         }
         total = total * qtd;
 
+        // Relatório do pedido
         textView = findViewById(R.id.textPedido);
         String text = "";
         text = text.concat("Tipo: " + opcoes[tipo]);
@@ -69,15 +97,29 @@ public class OrderActivity extends AppCompatActivity {
         for(int flavor : flavors){
             text = text.concat(sabores[flavor] + " ");
         }
+        text = text.concat("\nAcompanhamento: " + toppings[topping]);
+        text = text.concat("\nCobertura: " + syrups[syrup]);
         text = text.concat("\nQuantidade: " + qtd);
         text = text.concat("\nTotal: R$ " + total);
         textView.setText(text);
 
+        int levelmax = flavors.size()-1;
+        // adiciona as bolas de sorvete
         int i = 0;
         for(int flavor : flavors){
             addFlavor(saboresImg[flavor], frameLayout, i);
             i++;
         }
+        if(tipo == 1 && flavors.size() < 2){
+            levelmax++;
+            addFlavor(saboresImg[flavors.get(0)], frameLayout, 1);
+        }
+
+        // adiciona a cobertura
+        addFlavor(syrupsImg[syrup], frameLayout, levelmax);
+
+        // adiciona o acompanhamento
+        addFlavor(toppingsImg[topping], frameLayout, levelmax);
 
         Button btnVoltar = findViewById(R.id.button);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
