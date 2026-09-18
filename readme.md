@@ -65,7 +65,7 @@ Nesta tela o usuário configura seu sorvete escolhendo tipo, sabores, cobertura,
 
 Após a confirmação, o aplicativo apresenta o sorvete montado e as informações do pedido.
 
-![Pedido finalizado](docs/images/tela_pedido.png)
+![Pedido finalizado](docs/images/tela_pedido.jpeg)
 
 ## 🛠️ Tecnologias utilizadas
 
